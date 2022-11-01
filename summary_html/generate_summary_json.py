@@ -20,14 +20,14 @@ years.sort(reverse=True)
 
 #clean up the text blocks
 def clean_text(description):
-    
+
     #remove the '-' at the beginning of each line
     description_lines = description.split('\n')
     description_lines = [line.lstrip('- ') for line in description_lines]
 
     #change urls with <a> links with regular expression
     description_lines = [re.sub(r'(https?:\/\/[^\s]+)', r'<a target="_blank" href="\1">\1</a>', line) for line in description_lines]
-    
+
     #add <br/> for each line
     description = '<br/>'.join(description_lines)
     return description
